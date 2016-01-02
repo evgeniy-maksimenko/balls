@@ -78,7 +78,7 @@ public class Ball extends JPanel implements MouseListener {
         }
 
         if(flag) {
-            parent.add(new Ball(tmpBall.getX(), tmpBall.getY(), -dy,  -dx, 40, tmpBall.color));
+            parent.add(new Ball(tmpBall.getX(), tmpBall.getY(), -dy,  -dx, tmpBall.getHeight(), tmpBall.color));
             flag = false;
             tmpBall = null;
             parent.repaint();
