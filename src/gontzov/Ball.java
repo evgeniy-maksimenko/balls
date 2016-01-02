@@ -8,8 +8,6 @@ import java.util.Random;
 
 public class Ball extends JPanel implements MouseListener {
 
-    private static int count;
-    public final int id=count++;
     int dx = 0;
     int dy = 0;
     Boolean flag = false;
@@ -26,11 +24,10 @@ public class Ball extends JPanel implements MouseListener {
     }
 
     public Ball(int x, int y, int dx, int dy, int dm) {
-        Random random = new Random();
         setBounds(x, y, dm, dm);
         this.dx = dx;
         this.dy = dy;
-        color = new Color(random.nextInt(255), random.nextInt(255),random.nextInt(255));
+        color = getRandomRGBColor();
         addMouseListener(this);
     }
 
@@ -39,8 +36,13 @@ public class Ball extends JPanel implements MouseListener {
         setBounds(x-20,y-20,40,40);
         dx = random.nextInt(10);
         dy = random.nextInt(10);
-        color = new Color(random.nextInt(255), random.nextInt(255),random.nextInt(255));
+        color = getRandomRGBColor();
         addMouseListener(this);
+    }
+
+    private Color getRandomRGBColor(){
+        Random random = new Random();
+        return new Color(random.nextInt(255), random.nextInt(255),random.nextInt(255));
     }
 
     public void move(){
